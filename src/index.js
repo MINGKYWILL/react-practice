@@ -67,55 +67,22 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <div className="pizzas">
-        <Pizza
-          name="Focaccia"
-          ingredients="Bread with italian olive oil and rosemary"
-          price="6"
-          photoName="pizzas/focaccia.jpg"
-        />
-        <Pizza
-          name="Pizza Margherita"
-          ingredients="Tomato and mozarella"
-          price="10"
-          photoName="pizzas/margherita.jpg"
-        />
-        <Pizza
-          name="Pizza Spinaci"
-          ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-          price="12"
-          photoName="pizzas/spinaci.jpg"
-        />
-        <Pizza
-          name="Pizza Funghi"
-          ingredients="Tomato, mozarella, mushrooms, and onion"
-          price="12"
-          photoName="pizzas/funghi.jpg"
-        />
-        <Pizza
-          name="Pizza Salamino"
-          ingredients="Tomato, mozarella, and pepperoni"
-          price="15"
-          photoName="pizzas/salamino.jpg"
-        />
-        <Pizza
-          name="Pizza Prosciutto"
-          ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
-          price="18"
-          photoName="pizzas/prosciutto.jpg"
-        />
-      </div>
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
     </main>
   );
 }
 function Pizza(props) {
   return (
     <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
+      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>﹩{props.price}</span>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>﹩{props.pizzaObj.price}</span>
       </div>
     </div>
   );
