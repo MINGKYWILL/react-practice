@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
 
-// const messages = [
-//   "Learn React ⚛️",
-//   "Apply for jobs 💼",
-//   "Invest your new income 🤑",
-// ];
-
 // export default function App() {
 //   const [step, setStep] = useState(1);
 //   const [isOpen, setIsOpen] = useState(true);
@@ -61,8 +55,18 @@ export default function App() {
   return (
     <div>
       <div>
-        <button onClick={() => setStep((s) => s - 1)}>-</button>Step: {step}
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
+        {/* <button onClick={() => setStep((s) => s - 1)}>-</button>Step: {step}
+        <button onClick={() => setStep((s) => s + 1)}>+</button> */}
+
+        {/* diffent format */}
+        <input
+          type="range"
+          min="0"
+          max="20"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>Step: {step}</span>
       </div>
       <div>
         <button onClick={() => setCount((c) => c - step)}>-</button>Count:{" "}
